@@ -1,0 +1,4 @@
+dd-agent ALL=NOPASSWD: /usr/sbin/smartctl -A /dev/disk/*/*,\
+         /usr/sbin/smartctl -l error /dev/disk/*/*,\
+         /usr/sbin/smartctl -l selftest /dev/disk/*/*,\
+         /usr/sbin/nvme smart-log /dev/nvme*

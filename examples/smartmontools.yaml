@@ -1,0 +1,29 @@
+---
+init_config:
+
+instances:
+  - devices:
+      # These are made-up physical disk device names. Substitute for your own.
+      - /dev/disk/by-path/pci-0000:04:00.0-sas-phy0-lun-0
+      - /dev/disk/by-path/pci-0000:04:00.0-sas-phy1-lun-0
+      - /dev/disk/by-path/pci-0000:04:00.0-sas-phy2-lun-0
+      - /dev/disk/by-path/pci-0000:04:00.0-sas-phy3-lun-0
+    gauges:
+      # For metrics, you'll probably want to figure out which ones you
+      # care about.
+      - metric: disk.temperature_degrees_c
+        smart_names:
+          - Temperature_Celsius
+      - metric: disk.problem_total
+        smart_names:
+          - Raw_Read_Error_Rate
+          - Reallocated_Sector_Ct
+          - Seek_Error_Rate
+          - Reallocated_Event_Count
+          - Current_Pending_Sector
+          - Offline_Uncorrectable
+          - Multi_Zone_Error_Rate
+          - UDMA_CRC_Error_Count
+          - Calibration_Retry_Count
+        warn_past: 0
+        critical_past: 10

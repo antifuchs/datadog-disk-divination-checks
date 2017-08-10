@@ -1,0 +1,34 @@
+---
+init_config:
+
+instances:
+  - devices:
+      # These are made-up physical disk device names. Substitute for your own.
+      - /dev/nvme0n1
+    metrics:
+      # For metrics, you'll probably want to figure out which ones you
+      # care about.
+      - metric: disk.problem_total
+        fields:
+          - critical_warning
+          - unsafe_shutdowns
+          - unsafe_shutdowns
+          - num_err_log_entries
+          - media_errors
+      - metric: disk.stats_total
+        fields:
+          - data_units_read
+          - host_read_commands
+          - data_units_written
+          - host_write_commands
+          - power_cycles
+          - power_on_hours
+          - unsafe_shutdowns
+      - metric: disk.media.usage_percent
+        fields:
+          - available_spare
+          - available_spare_threshold
+          - percentage_used
+      - metric: disk.temperature_degrees_c
+        fields:
+          - temperature
